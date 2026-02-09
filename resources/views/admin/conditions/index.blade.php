@@ -16,19 +16,19 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Ordre</th>
-                                    <th>Titre</th>
-                                    <th>Contenu</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Ordre</th>
+                                    <th class="text-center">Titre</th>
+                                    <th class="text-center">Contenu</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($conditions as $condition)
                                     <tr>
-                                        <td>{{ $condition->order }}</td>
-                                        <td>{{ $condition->title }}</td>
-                                        <td>{{ Str::limit($condition->content, 100) }}</td>
-                                        <td>
+                                        <td class="text-center">{{ $condition->order }}</td>
+                                        <td class="text-center">{{ $condition->title }}</td>
+                                        <td class="text-center">{{ Str::limit($condition->content, 100) }}</td>
+                                        <td class="text-center">
                                             <a href="{{ route('admin.conditions.edit', $condition->id) }}"
                                                 class="btn btn-sm btn-warning">Modifier</a>
                                             <form action="{{ route('admin.conditions.destroy', $condition->id) }}" method="POST"

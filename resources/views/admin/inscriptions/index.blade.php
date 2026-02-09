@@ -15,11 +15,16 @@
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Type
                                     </th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nom
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                        Nom
                                         / Structure</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    <th
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Contact</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
@@ -27,23 +32,25 @@
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Statut</th>
-                                    <th class="text-secondary opacity-7"></th>
+                                    <th
+                                        class="text-center text-secondary opacity-7 text-uppercase text-xxs font-weight-bolder">
+                                        Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse($inscriptions as $inscription)
                                     <tr>
-                                        <td>
-                                            <div class="d-flex px-2 py-1">
+                                        <td class="text-center">
+                                            <div class="d-flex px-2 py-1 justify-content-center">
                                                 <div class="d-flex flex-column justify-content-center">
                                                     <h6 class="mb-0 text-sm text-capitalize">{{ $inscription->type }}</h6>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">{{ $inscription->name }}</p>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <p class="text-xs font-weight-bold mb-0">{{ $inscription->email }}</p>
                                             <p class="text-xs text-secondary mb-0">{{ $inscription->phone }}</p>
                                         </td>
@@ -57,7 +64,7 @@
                                                 {{ $inscription->status }}
                                             </span>
                                         </td>
-                                        <td class="align-middle">
+                                        <td class="align-middle text-center">
                                             <a href="{{ route('admin.inscriptions.show', $inscription->id) }}"
                                                 class="text-secondary font-weight-bold text-xs" data-toggle="tooltip"
                                                 data-original-title="Voir">

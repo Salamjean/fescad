@@ -16,21 +16,22 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Titre</th>
-                                    <th>Fichier</th>
-                                    <th>Date de publication</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Titre</th>
+                                    <th class="text-center">Fichier</th>
+                                    <th class="text-center">Date de publication</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($communiques as $communique)
                                     <tr>
-                                        <td>{{ $communique->title }}</td>
-                                        <td><a href="{{ asset('storage/' . $communique->file_path) }}"
+                                        <td class="text-center">{{ $communique->title }}</td>
+                                        <td class="text-center"><a href="{{ asset('storage/' . $communique->file_path) }}"
                                                 target="_blank">Télécharger</a></td>
-                                        <td>{{ $communique->published_at ? $communique->published_at->format('d/m/Y') : 'N/A' }}
+                                        <td class="text-center">
+                                            {{ $communique->published_at ? $communique->published_at->format('d/m/Y') : 'N/A' }}
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('admin.communiques.edit', $communique->id) }}"
                                                 class="btn btn-sm btn-warning">Modifier</a>
                                             <form action="{{ route('admin.communiques.destroy', $communique->id) }}"

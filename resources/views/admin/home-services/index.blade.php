@@ -15,21 +15,21 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Ordre</th>
-                        <th>Icône</th>
-                        <th>Titre</th>
-                        <th>Couleur</th>
-                        <th>Actions</th>
+                        <th class="text-center">Ordre</th>
+                        <th class="text-center">Icône</th>
+                        <th class="text-center">Titre</th>
+                        <th class="text-center">Couleur</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($services as $service)
                         <tr>
-                            <td>{{ $service->order }}</td>
-                            <td><i class="bi {{ $service->icon }} fs-4"></i></td>
-                            <td>{{ $service->title }}</td>
-                            <td><span class="badge bg-secondary">{{ $service->color_class }}</span></td>
-                            <td>
+                            <td class="text-center">{{ $service->order }}</td>
+                            <td class="text-center"><i class="bi {{ $service->icon }} fs-4"></i></td>
+                            <td class="text-center">{{ $service->title }}</td>
+                            <td class="text-center"><span class="badge bg-secondary">{{ $service->color_class }}</span></td>
+                            <td class="text-center">
                                 <a href="{{ route('admin.home-services.edit', $service->id) }}"
                                     class="btn btn-sm btn-warning">Modifier</a>
                                 <form action="{{ route('admin.home-services.destroy', $service->id) }}" method="POST"

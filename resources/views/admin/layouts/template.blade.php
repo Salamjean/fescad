@@ -77,11 +77,15 @@
         }
 
         .dropdown-toggle::after {
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
+            display: none;
+        }
+
+        .dropdown-chevron {
+            transition: transform 0.3s;
+        }
+
+        a[aria-expanded="true"] .dropdown-chevron {
+            transform: rotate(180deg);
         }
     </style>
 </head>

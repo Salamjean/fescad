@@ -124,6 +124,47 @@
             @endforeach
 
         </div>
-
     </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section mb-5">
+        <div class="container">
+
+            <!-- Section Header -->
+            <div class="container section-title" data-aos="fade-up">
+                <span class="partners-count">Nos Partenaires</span>
+                <h2>Ils nous font confiance</h2>
+                <p>Découvrez les organisations et entreprises qui soutiennent le FESCAD</p>
+            </div>
+
+            <!-- Partners Carousel -->
+            <div class="row align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="200">
+
+                @foreach ($partners as $partner)
+                    <div class="col-6 col-md-3 col-lg-2 partner-item" style="text-align: center; margin-bottom: 30px;">
+                        <div class="partner-logo mb-2">
+                            @if($partner->website)
+                                <a href="{{ $partner->website }}" target="_blank" rel="noopener noreferrer">
+                                    <img src="{{ asset('storage/' . $partner->logo) }}" alt="{{ $partner->name }}" class="img-fluid"
+                                        style="max-height: 80px; filter: grayscale(100%); transition: 0.3s;"
+                                        onmouseover="this.style.filter='grayscale(0%)'"
+                                        onmouseout="this.style.filter='grayscale(100%)'">
+                                </a>
+                            @else
+                                <img src="{{ asset('storage/' . $partner->logo) }}" alt="{{ $partner->name }}" class="img-fluid"
+                                    style="max-height: 80px; filter: grayscale(100%); transition: 0.3s;"
+                                    onmouseover="this.style.filter='grayscale(0%)'"
+                                    onmouseout="this.style.filter='grayscale(100%)'">
+                            @endif
+                        </div>
+                        <p class="partner-name" style="margin-top: 8px; font-size: 14px; font-weight: 600; color: #333;">
+                            {{ $partner->name }}
+                        </p>
+                    </div>
+                @endforeach
+
+            </div>
+
+        </div>
+    </section><!-- /Partners Section -->
 @endsection

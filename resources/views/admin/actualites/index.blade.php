@@ -16,16 +16,16 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Image</th>
-                                    <th>Titre</th>
-                                    <th>Date de publication</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Image</th>
+                                    <th class="text-center">Titre</th>
+                                    <th class="text-center">Date de publication</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($actualites as $actualite)
                                     <tr>
-                                        <td>
+                                        <td class="text-center">
                                             @if($actualite->image)
                                                 <img src="{{ asset('storage/' . $actualite->image) }}" alt="{{ $actualite->title }}"
                                                     width="50">
@@ -33,10 +33,11 @@
                                                 N/A
                                             @endif
                                         </td>
-                                        <td>{{ $actualite->title }}</td>
-                                        <td>{{ $actualite->published_at ? $actualite->published_at->format('d/m/Y H:i') : 'Non publié' }}
+                                        <td class="text-center">{{ $actualite->title }}</td>
+                                        <td class="text-center">
+                                            {{ $actualite->published_at ? $actualite->published_at->format('d/m/Y H:i') : 'Non publié' }}
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('admin.actualites.edit', $actualite->id) }}"
                                                 class="btn btn-sm btn-warning">Modifier</a>
                                             <form action="{{ route('admin.actualites.destroy', $actualite->id) }}" method="POST"

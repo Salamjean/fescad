@@ -12,25 +12,25 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Image</th>
-                                <th>Nom</th>
-                                <th>Rôle</th>
-                                <th>Actions</th>
+                                <th class="text-center">Image</th>
+                                <th class="text-center">Nom</th>
+                                <th class="text-center">Rôle</th>
+                                <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($artistes as $artiste)
                                 <tr>
-                                    <td>
+                                    <td class="text-center">
                                         @if($artiste->image)
                                             <img src="{{ asset($artiste->image) }}" width="50" class="img-thumbnail rounded-circle">
                                         @else
                                             <span class="badge bg-secondary">N/A</span>
                                         @endif
                                     </td>
-                                    <td>{{ $artiste->name }}</td>
-                                    <td>{{ $artiste->role }}</td>
-                                    <td>
+                                    <td class="text-center">{{ $artiste->name }}</td>
+                                    <td class="text-center">{{ $artiste->role }}</td>
+                                    <td class="text-center">
                                         <a href="{{ route('admin.artistes.edit', $artiste->id) }}"
                                             class="btn btn-sm btn-warning">Modifier</a>
                                         <form action="{{ route('admin.artistes.destroy', $artiste->id) }}" method="POST"

@@ -16,32 +16,23 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Ordre</th>
-                                    <th>Image</th>
-                                    <th>Titre</th>
-                                    <th>Statut</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Ordre</th>
+                                    <th class="text-center">Titre</th>
+                                    <th class="text-center">Statut</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($slides as $slide)
                                     <tr>
-                                        <td>{{ $slide->order }}</td>
-                                        <td>
-                                            @if($slide->image)
-                                                <img src="{{ Str::startsWith($slide->image, 'assets/') ? asset($slide->image) : asset('storage/' . $slide->image) }}"
-                                                    alt="{{ $slide->title }}" width="100">
-                                            @else
-                                                N/A
-                                            @endif
-                                        </td>
-                                        <td>{{ $slide->title }}</td>
-                                        <td>
+                                        <td class="text-center">{{ $slide->order }}</td>
+                                        <td class="text-center">{{ $slide->title }}</td>
+                                        <td class="text-center">
                                             <span class="badge {{ $slide->is_active ? 'bg-success' : 'bg-danger' }}">
                                                 {{ $slide->is_active ? 'Actif' : 'Inactif' }}
                                             </span>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="{{ route('admin.hero-slides.edit', $slide->id) }}"
                                                 class="btn btn-sm btn-warning">Modifier</a>
                                             <form action="{{ route('admin.hero-slides.destroy', $slide->id) }}" method="POST"

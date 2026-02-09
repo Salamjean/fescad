@@ -16,22 +16,22 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Image</th>
-                                    <th>Titre</th>
-                                    <th>Catégorie</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Image</th>
+                                    <th class="text-center">Titre</th>
+                                    <th class="text-center">Catégorie</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($galeries as $item)
                                     <tr>
-                                        <td>
+                                        <td class="text-center">
                                             <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->title }}"
                                                 width="50">
                                         </td>
-                                        <td>{{ $item->title }}</td>
-                                        <td>{{ $item->category }}</td>
-                                        <td>
+                                        <td class="text-center">{{ $item->title }}</td>
+                                        <td class="text-center">{{ $item->category }}</td>
+                                        <td class="text-center">
                                             <a href="{{ route('admin.galeries.edit', $item->id) }}"
                                                 class="btn btn-sm btn-warning">Modifier</a>
                                             <form action="{{ route('admin.galeries.destroy', $item->id) }}" method="POST"

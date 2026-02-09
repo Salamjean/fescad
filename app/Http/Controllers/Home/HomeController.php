@@ -14,6 +14,7 @@ use App\Models\HeroSlide;
 use App\Models\Page;
 use App\Models\HomeFeature;
 use App\Models\HomeService;
+use App\Models\Partner;
 use App\Models\Programme;
 use App\Models\Tarif;
 use App\Models\Video;
@@ -30,8 +31,9 @@ class HomeController extends Controller
         $slides = HeroSlide::where('is_active', true)->orderBy('order')->get();
         $homeServices = HomeService::orderBy('order')->get();
         $homeFeatures = HomeFeature::orderBy('order')->get();
+        $partners = Partner::where('is_active', true)->orderBy('order')->get();
 
-        return view('home.accueil', compact('vision', 'presentation', 'programmes', 'actualites', 'slides', 'homeServices', 'homeFeatures'));
+        return view('home.accueil', compact('vision', 'presentation', 'programmes', 'actualites', 'slides', 'homeServices', 'homeFeatures', 'partners'));
     }
 
     public function about()

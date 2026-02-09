@@ -5,8 +5,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4>Gestion des Tarifs</h4>
-                    <a href="{{ route('admin.tarifs.create') }}" class="btn btn-primary">Ajouter un Tarif</a>
+                    <h4>Gestion des Partenaires</h4>
+                    <a href="{{ route('admin.partners.create') }}" class="btn btn-primary">Ajouter un Partenaire</a>
                 </div>
                 <div class="card-body">
                     @if(session('success'))
@@ -16,40 +16,43 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th class="text-center">Ordre</th>
+                                    <th class="text-center">Logo</th>
                                     <th class="text-center">Nom</th>
-                                    <th class="text-center">Prix</th>
-                                    <th class="text-center">Icone</th>
-                                    <th class="text-center">Caractéristiques</th>
-                                    <th class="text-center">Recommandé</th>
+                                    <th class="text-center">Site Web</th>
+                                    <th class="text-center">Statut</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($tarifs as $tarif)
+                                @foreach($partners as $partner)
                                     <tr>
-                                        <td class="text-center">{{ $tarif->name }}</td>
-                                        <td class="text-center">{{ $tarif->price }}</td>
-                                        <td class="text-center"><i class="{{ $tarif->icon }}"></i> ({{ $tarif->icon }})</td>
+                                        <td class="text-center">{{ $partner->order }}</td>
                                         <td class="text-center">
-                                            @if($tarif->features)
-                                                <ul class="list-unstyled">
-                                                    @foreach($tarif->features as $feature)
-                                                        <li>{{ $feature }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">
-                                            @if($tarif->recommended)
-                                                <span class="badge bg-success">Oui</span>
+                                            @if($partner->logo)
+                                                <img src="{{ asset('storage/' . $partner->logo) }}"
+                                                    alt="{{ $partner->name }}" width="100">
                                             @else
-                                                <span class="badge bg-secondary">Non</span>
+                                                N/A
+                                            @endif
+                                        </td>
+                                        <td class="text-center">{{ $partner->name }}</td>
+                                        <td class="text-center">
+                                            @if($partner->website)
+                                                <a href="{{ $partner->website }}" target="_blank">{{ $partner->website }}</a>
+                                            @else
+                                                -
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.tarifs.edit', $tarif->id) }}"
+                                            <span class="badge {{ $partner->is_active ? 'bg-success' : 'bg-danger' }}">
+                                                {{ $partner->is_active ? 'Actif' : 'Inactif' }}
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="{{ route('admin.partners.edit', $partner->id) }}"
                                                 class="btn btn-sm btn-warning">Modifier</a>
-                                            <form action="{{ route('admin.tarifs.destroy', $tarif->id) }}" method="POST"
+                                            <form action="{{ route('admin.partners.destroy', $partner->id) }}" method="POST"
                                                 class="d-inline" onsubmit="return confirm('Êtes-vous sûr ?');">
                                                 @csrf
                                                 @method('DELETE')

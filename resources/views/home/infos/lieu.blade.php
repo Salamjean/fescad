@@ -1,7 +1,9 @@
 @extends('home.layouts.template')
 @section('content')
     <!-- Page Title -->
-    <div class="page-title dark-background">
+    <div class="page-title dark-background" @if($page->image)
+        style="background-image: url('{{ asset('storage/' . $page->image) }}'); background-size: cover; background-position: center;"
+    @endif>
         <div class="container position-relative">
             <h1>Lieu & Accès</h1>
             <p>Toutes les informations pour vous rendre au FESCAD facilement.</p>

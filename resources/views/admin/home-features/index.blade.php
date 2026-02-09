@@ -15,29 +15,29 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th>Ordre</th>
-                        <th>Image</th>
-                        <th>Titre</th>
-                        <th>Layout</th>
-                        <th>Actions</th>
+                        <th class="text-center">Ordre</th>
+                        <th class="text-center">Image</th>
+                        <th class="text-center">Titre</th>
+                        <th class="text-center">Layout</th>
+                        <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($features as $feature)
                         <tr>
-                            <td>{{ $feature->order }}</td>
-                            <td>
+                            <td class="text-center">{{ $feature->order }}</td>
+                            <td class="text-center">
                                 @if($feature->image)
                                     <img src="{{ asset($feature->image) }}" width="60" class="img-thumbnail">
                                 @endif
                             </td>
-                            <td>{{ $feature->title }}</td>
-                            <td>
+                            <td class="text-center">{{ $feature->title }}</td>
+                            <td class="text-center">
                                 <span class="badge bg-secondary">
                                     {{ $feature->is_reversed ? 'Image Droite' : 'Image Gauche' }}
                                 </span>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <a href="{{ route('admin.home-features.edit', $feature->id) }}"
                                     class="btn btn-sm btn-warning">Modifier</a>
                                 <form action="{{ route('admin.home-features.destroy', $feature->id) }}" method="POST"

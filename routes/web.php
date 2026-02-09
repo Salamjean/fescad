@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\HeroSlideController;
 use App\Http\Controllers\Admin\HomeServiceController;
 use App\Http\Controllers\Admin\HomeFeatureController;
+use App\Http\Controllers\Admin\PartnerController;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('/')->group(function () {
@@ -122,6 +123,7 @@ Route::prefix('/admin')->group(function () {
         Route::resource('/hero-slides', HeroSlideController::class);
         Route::resource('/home-services', HomeServiceController::class);
         Route::resource('/home-features', HomeFeatureController::class);
+        Route::resource('/partners', PartnerController::class);
 
         // Inscriptions
         Route::get('/inscriptions', [InscriptionController::class, 'index'])->name('inscriptions.index');

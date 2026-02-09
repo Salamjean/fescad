@@ -16,17 +16,18 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Titre</th>
-                                    <th>Lien YouTube</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Titre</th>
+                                    <th class="text-center">Lien YouTube</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($videos as $video)
                                     <tr>
-                                        <td>{{ $video->title }}</td>
-                                        <td><a href="{{ $video->youtube_link }}" target="_blank">Voir la vidéo</a></td>
-                                        <td>
+                                        <td class="text-center">{{ $video->title }}</td>
+                                        <td class="text-center"><a href="{{ $video->youtube_link }}" target="_blank">Voir la
+                                                vidéo</a></td>
+                                        <td class="text-center">
                                             <a href="{{ route('admin.videos.edit', $video->id) }}"
                                                 class="btn btn-sm btn-warning">Modifier</a>
                                             <form action="{{ route('admin.videos.destroy', $video->id) }}" method="POST"

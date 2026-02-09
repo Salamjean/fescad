@@ -15,19 +15,19 @@
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Titre</th>
-                                    <th>Slug</th>
-                                    <th>Dernière modification</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Titre</th>
+                                    <th class="text-center">Slug</th>
+                                    <th class="text-center">Dernière modification</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($pages as $page)
                                     <tr>
-                                        <td>{{ $page->title }}</td>
-                                        <td>{{ $page->slug }}</td>
-                                        <td>{{ $page->updated_at->format('d/m/Y H:i') }}</td>
-                                        <td>
+                                        <td class="text-center">{{ $page->title }}</td>
+                                        <td class="text-center">{{ $page->slug }}</td>
+                                        <td class="text-center">{{ $page->updated_at->format('d/m/Y H:i') }}</td>
+                                        <td class="text-center">
                                             <a href="{{ route('admin.pages.edit', $page->id) }}"
                                                 class="btn btn-sm btn-primary">Modifier</a>
                                         </td>

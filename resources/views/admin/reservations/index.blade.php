@@ -12,35 +12,35 @@
                         <table class="table table-bordered table-striped" id="reservationsTable">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Type</th>
-                                    <th>Nom / Structure</th>
-                                    <th>Contact</th>
-                                    <th>Détails</th>
-                                    <th>Statut</th>
-                                    <th>Actions</th>
+                                    <th class="text-center">Date</th>
+                                    <th class="text-center">Type</th>
+                                    <th class="text-center">Nom / Structure</th>
+                                    <th class="text-center">Contact</th>
+                                    <th class="text-center">Détails</th>
+                                    <th class="text-center">Statut</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($reservations as $reservation)
                                     <tr>
-                                        <td>{{ $reservation->created_at->format('d/m/Y H:i') }}</td>
-                                        <td>
+                                        <td class="text-center">{{ $reservation->created_at->format('d/m/Y H:i') }}</td>
+                                        <td class="text-center">
                                             <span class="badge {{ $reservation->type == 'ticket' ? 'bg-info' : 'bg-warning' }}">
                                                 {{ ucfirst($reservation->type) }}
                                             </span>
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             {{ $reservation->name }}
                                             @if($reservation->company)
                                                 <br><small class="text-muted">{{ $reservation->company }}</small>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             <a href="mailto:{{ $reservation->email }}">{{ $reservation->email }}</a><br>
                                             {{ $reservation->phone }}
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             @if($reservation->type == 'ticket')
                                                 Qté: {{ $reservation->quantity }}<br>
                                             @else
@@ -52,7 +52,7 @@
                                                     message</button>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             @if($reservation->status == 'pending')
                                                 <span class="badge bg-secondary">En attente</span>
                                             @elseif($reservation->status == 'accepted')
@@ -61,7 +61,7 @@
                                                 <span class="badge bg-danger">Refusé</span>
                                             @endif
                                         </td>
-                                        <td>
+                                        <td class="text-center">
                                             @if($reservation->status == 'pending')
                                                 <form action="{{ route('admin.reservations.status', $reservation->id) }}"
                                                     method="POST" class="d-inline"

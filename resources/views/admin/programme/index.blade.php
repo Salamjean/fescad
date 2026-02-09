@@ -12,21 +12,21 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Heure</th>
-                                <th>Titre</th>
-                                <th>Lieu</th>
-                                <th>Actions</th>
+                                <th class="text-center">Date</th>
+                                <th class="text-center">Heure</th>
+                                <th class="text-center">Titre</th>
+                                <th class="text-center">Lieu</th>
+                                <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($programmes as $programme)
                                 <tr>
-                                    <td>{{ \Carbon\Carbon::parse($programme->date)->format('d/m/Y') }}</td>
-                                    <td>{{ \Carbon\Carbon::parse($programme->start_time)->format('H:i') }}</td>
-                                    <td>{{ $programme->title }}</td>
-                                    <td>{{ $programme->location }}</td>
-                                    <td>
+                                    <td class="text-center">{{ \Carbon\Carbon::parse($programme->date)->format('d/m/Y') }}</td>
+                                    <td class="text-center">{{ \Carbon\Carbon::parse($programme->start_time)->format('H:i') }}</td>
+                                    <td class="text-center">{{ $programme->title }}</td>
+                                    <td class="text-center">{{ $programme->location }}</td>
+                                    <td class="text-center">
                                         <a href="{{ route('admin.programme.edit', $programme->id) }}"
                                             class="btn btn-sm btn-warning">Modifier</a>
                                         <form action="{{ route('admin.programme.destroy', $programme->id) }}" method="POST"
