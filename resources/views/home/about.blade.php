@@ -22,19 +22,19 @@
 
             <div class="row gy-4">
                 <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-                    <img src="{{ asset($presentation->image ?? 'assets/img/about.jpg') }}" class="img-fluid"
-                        alt="{{ $presentation->title }}">
-                    @if($presentation->video_link)
+                    <img src="{{ asset(optional($presentation)->image ?? 'assets/img/about.jpg') }}" class="img-fluid"
+                        alt="{{ optional($presentation)->title ?? 'À propos' }}">
+                    @if(optional($presentation)->video_link)
                         <a href="{{ $presentation->video_link }}" class="glightbox pulsating-play-btn"></a>
                     @endif
                 </div>
                 <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-                    <h3>{{ $presentation->title }}</h3>
+                    <h3>{{ optional($presentation)->title ?? 'Présentation du FESCAD' }}</h3>
                     <p class="fst-italic">
-                        {{ $presentation->subtitle }}
+                        {{ optional($presentation)->subtitle }}
                     </p>
 
-                    {!! nl2br(e($presentation->description)) !!}
+                    {!! nl2br(e(optional($presentation)->description)) !!}
 
                 </div>
             </div>

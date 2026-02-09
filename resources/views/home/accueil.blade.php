@@ -36,21 +36,21 @@
             <div class="row gy-4">
                 <!-- Image/Visuel du festival avec vidéo de présentation -->
                 <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
-                    <img src="{{ asset($presentation->image ?? 'assets/img/logo_fescad.png') }}" class="img-fluid"
-                        alt="{{ $presentation->title ?? 'FESCAD' }}">
+                    <img src="{{ asset(optional($presentation)->image ?? 'assets/img/logo_fescad.png') }}" class="img-fluid"
+                        alt="{{ optional($presentation)->title ?? 'FESCAD' }}">
                     <!-- Lien vers une vidéo de présentation du festival -->
-                    @if($presentation->video_link)
+                    @if(optional($presentation)->video_link)
                         <a href="{{ $presentation->video_link }}" class="glightbox pulsating-play-btn"></a>
                     @endif
                 </div>
 
                 <!-- Contenu de présentation -->
                 <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-                    <h3>{{ $presentation->title }}</h3>
+                    <h3>{{ optional($presentation)->title ?? 'Bienvenue au FESCAD' }}</h3>
                     <p class="fst-italic">
-                        {{ $presentation->subtitle }}
+                        {{ optional($presentation)->subtitle }}
                     </p>
-                    @if($presentation->points)
+                    @if(optional($presentation)->points)
                         <ul>
                             @foreach ($presentation->points as $point)
                                 <li><i class="bi bi-check2-all"></i> <span>{{ $point }}</span></li>
@@ -58,15 +58,16 @@
                         </ul>
                     @endif
                     <p>
-                        {{ $presentation->description }}
+                        {{ optional($presentation)->description }}
                     </p>
                     <!-- Liens vers les pages détaillées -->
                     <div class="mt-4">
-                        @if($presentation->btn1_text)
+                        @if(optional($presentation)->btn1_text)
                             <a href="{{ $presentation->btn1_link }}" class="btn btn-primary">{{ $presentation->btn1_text }}</a>
                         @endif
-                        @if($presentation->btn2_text)
-                            <a href="{{ $presentation->btn2_link }}" class="btn btn-outline-primary ms-2">{{ $presentation->btn2_text }}</a>
+                        @if(optional($presentation)->btn2_text)
+                            <a href="{{ $presentation->btn2_link }}"
+                                class="btn btn-outline-primary ms-2">{{ $presentation->btn2_text }}</a>
                         @endif
                     </div>
                 </div>
@@ -91,10 +92,12 @@
             @foreach ($homeFeatures as $feature)
                 <!-- Feature Item -->
                 <div class="row gy-4 align-items-center features-item">
-                    <div class="col-md-5 {{ $feature->is_reversed ? 'order-1 order-md-2' : '' }} d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+                    <div class="col-md-5 {{ $feature->is_reversed ? 'order-1 order-md-2' : '' }} d-flex align-items-center"
+                        data-aos="zoom-out" data-aos-delay="100">
                         <img src="{{ asset($feature->image) }}" class="img-fluid" alt="{{ $feature->title }}">
                     </div>
-                    <div class="col-md-7 {{ $feature->is_reversed ? 'order-2 order-md-1' : '' }}" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-md-7 {{ $feature->is_reversed ? 'order-2 order-md-1' : '' }}" data-aos="fade-up"
+                        data-aos-delay="100">
                         <h3>{{ $feature->title }}</h3>
                         @if($feature->subtitle)
                             <p class="fst-italic">
