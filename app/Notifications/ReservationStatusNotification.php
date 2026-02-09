@@ -47,7 +47,7 @@ class ReservationStatusNotification extends Notification
 
         return (new MailMessage)
             ->subject($subject)
-            ->from('infos@plateau-apps.com', 'FESCAD')
+            ->from('contact@fescads.com', 'FESCAD')
             ->view('emails.reservation_status', [
                 'reservation' => $this->reservation,
                 'status' => $this->status
