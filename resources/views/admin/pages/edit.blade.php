@@ -28,6 +28,25 @@
                             @endif
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="category" class="form-label">Catégorie (Optionnel)</label>
+                                <input type="text" class="form-control" id="category" name="category"
+                                    value="{{ $page->category }}" placeholder="ex: infos-pratiques">
+                                <div class="form-text">Utilisez 'infos-pratiques' pour grouper dans les onglets.</div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="order" class="form-label">Ordre d'affichage</label>
+                                <input type="number" class="form-control" id="order" name="order"
+                                    value="{{ $page->order ?? 0 }}">
+                            </div>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="is_active" name="is_active" value="1" {{ $page->is_active ? 'checked' : '' }}>
+                            <label class="form-check-label" for="is_active">Page active</label>
+                        </div>
+
                         <div class="mb-3">
                             <label for="content" class="form-label">Contenu (HTML autorisé)</label>
                             <textarea class="form-control" id="content" name="content" rows="15"

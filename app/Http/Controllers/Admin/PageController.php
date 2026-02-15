@@ -26,11 +26,17 @@ class PageController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category' => 'nullable|string|max:255',
+            'order' => 'nullable|integer',
+            'is_active' => 'boolean',
         ]);
 
         $data = [
             'title' => $request->title,
             'content' => $request->content,
+            'category' => $request->category,
+            'order' => $request->order ?? 0,
+            'is_active' => $request->has('is_active'),
         ];
 
         if ($request->hasFile('image')) {

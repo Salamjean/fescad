@@ -28,6 +28,75 @@
     </section>
     <!-- /Featured Services Section -->
 
+    <!-- Recent News Section -->
+    <section id="recent-news" class="recent-news section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+            <h2>Actualités</h2>
+            <p>Retrouvez les dernières informations du FESCAD</p>
+        </div><!-- End Section Title -->
+
+        <div class="container">
+
+            <div class="swiper init-swiper" data-aos="fade-up" data-aos-delay="100">
+                <script type="application/json" class="swiper-config">
+                    {
+                      "loop": true,
+                      "speed": 600,
+                      "autoplay": {
+                        "delay": 5000
+                      },
+                      "slidesPerView": "auto",
+                      "pagination": {
+                        "el": ".swiper-pagination",
+                        "type": "bullets",
+                        "clickable": true
+                      },
+                      "breakpoints": {
+                        "320": {
+                          "slidesPerView": 1,
+                          "spaceBetween": 40
+                        },
+                        "1200": {
+                          "slidesPerView": 3,
+                          "spaceBetween": 20
+                        }
+                      }
+                    }
+                    </script>
+                <div class="swiper-wrapper">
+                    @foreach($actualites as $actualite)
+                        <div class="swiper-slide">
+                            <div class="news-item position-relative h-100 p-3 border rounded shadow-sm bg-white">
+                                <div class="news-img overflow-hidden rounded mb-3">
+                                    <img src="{{ asset('storage/' . $actualite->image) }}" class="img-fluid w-100"
+                                        alt="{{ $actualite->title }}"
+                                        style="height: 200px; object-fit: cover; transition: 0.3s;">
+                                </div>
+                                <div class="news-content">
+                                    <div class="meta text-muted small mb-2 d-flex align-items-center">
+                                        <i class="bi bi-calendar me-2"></i>
+                                        {{ $actualite->published_at ? $actualite->published_at->format('d/m/Y') : $actualite->created_at->format('d/m/Y') }}
+                                    </div>
+                                    <h3 class="h5 fw-bold mb-2">
+                                        <a href="{{ route('media.actualites') }}"
+                                            class="stretched-link text-decoration-none text-dark">{{ $actualite->title }}</a>
+                                    </h3>
+                                    <p class="text-muted small mb-0">
+                                        {{ \Illuminate\Support\Str::limit(strip_tags($actualite->content), 100) }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+
+    </section><!-- /Recent News Section -->
+
     <!-- About Section -->
     <section id="about" class="about section light-background">
 

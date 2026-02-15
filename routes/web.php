@@ -50,6 +50,9 @@ Route::prefix('/')->group(function () {
     Route::get('/billetterie/conditions', [HomeController::class, 'conditions'])->name('billetterie.conditions');
 
     // Infos Pratiques
+    Route::get('/festival/infos-pratiques', [App\Http\Controllers\Home\InfosController::class, 'index'])->name('infos.index');
+
+    // Redirects for old routes
     Route::get('/infos/lieu-acces', [HomeController::class, 'lieu'])->name('infos.lieu');
     Route::get('/infos/hebergement', [HomeController::class, 'hebergement'])->name('infos.hebergement');
     Route::get('/infos/securite', [HomeController::class, 'securite'])->name('infos.securite');

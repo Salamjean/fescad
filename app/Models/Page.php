@@ -14,5 +14,12 @@ class Page extends Model
         'title',
         'content',
         'image',
+        'category',
+        'order',
+        'is_active',
+    ];
+    protected $casts = [
+        'is_active' => 'boolean',
+        'order' => 'integer',
     ];
 }

@@ -27,7 +27,7 @@ class HomeController extends Controller
         $vision = FestivalVision::first();
         $presentation = FestivalPresentation::first();
         $programmes = Programme::orderBy('date')->get();
-        $actualites = Actualite::orderBy('published_at', 'desc')->take(3)->get();
+        $actualites = Actualite::orderBy('published_at', 'desc')->take(5)->get();
         $slides = HeroSlide::where('is_active', true)->orderBy('order')->get();
         $homeServices = HomeService::orderBy('order')->get();
         $homeFeatures = HomeFeature::orderBy('order')->get();
@@ -96,22 +96,22 @@ class HomeController extends Controller
         return view('home.billetterie.conditions', compact('conditions'));
     }
 
+
+
+    // Deprecated methods - kept for potential redirects or backward compat
     public function lieu()
     {
-        $page = Page::where('slug', 'lieu')->firstOrFail();
-        return view('home.infos.lieu', compact('page'));
+        return redirect()->route('infos.index');
     }
 
     public function hebergement()
     {
-        $page = Page::where('slug', 'hebergement')->firstOrFail();
-        return view('home.infos.hebergement', compact('page'));
+        return redirect()->route('infos.index');
     }
 
     public function securite()
     {
-        $page = Page::where('slug', 'securite')->firstOrFail();
-        return view('home.infos.securite', compact('page'));
+        return redirect()->route('infos.index');
     }
 
     public function actualites()
@@ -123,7 +123,6 @@ class HomeController extends Controller
     public function galerie()
     {
         $galeries = Galerie::orderBy('created_at', 'desc')->get();
-        // Optionnel: Grouper par catégorie si besoin dans la vue
         return view('home.media.galerie', compact('galeries'));
     }
 
@@ -141,7 +140,8 @@ class HomeController extends Controller
 
     public function sociales()
     {
-        return view('home.sociales');
+        $page = Page::where('slug', 'sociales')->where('is_active', true)->first();
+        return view('home.sociales', compact('page'));
     }
 
     public function benevole()

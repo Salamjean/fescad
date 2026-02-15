@@ -93,7 +93,7 @@
             </a>
             <ul class="collapse list-unstyled ps-3 {{ request()->routeIs('admin.pages.*') ? 'show' : '' }}"
                 id="infosSubmenu">
-                <!-- @if($lieuPage)
+                @if($lieuPage)
                     <li><a href="{{ route('admin.pages.edit', $lieuPage->id) }}">Lieu & Accès</a></li>
                 @endif
                 @if($hebPage)
@@ -104,7 +104,7 @@
                 @endif
                 @if($socialPage)
                     <li><a href="{{ route('admin.pages.edit', $socialPage->id) }}">Œuvres Sociales</a></li>
-                @endif -->
+                @endif
                 <li><a href="{{ route('admin.pages.index') }}">Toutes les pages</a></li>
             </ul>
         </li>

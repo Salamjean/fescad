@@ -23,25 +23,28 @@
 
                 <div class="col-lg-6 position-relative align-self-start" data-aos="fade-up" data-aos-delay="100">
                     <img src="{{ asset('assets/img/about.jpg') }}" class="img-fluid" alt="">
-                    <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a>
                 </div>
 
                 <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Engagement Communautaire</h3>
-                    <p class="fst-italic">
-                        Chaque année, le festival reverse une partie de ses bénéfices à des actions caritatives.
-                    </p>
-                    <ul>
-                        <li><i class="bi bi-check2-all"></i> <span>Rénovation d'écoles primaires dans la commune
-                                d'Adjamé.</span></li>
-                        <li><i class="bi bi-check2-all"></i> <span>Dons de kits scolaires aux familles défavorisées.</span>
-                        </li>
-                        <li><i class="bi bi-check2-all"></i> <span>Soutien aux orphelinats locaux.</span></li>
-                    </ul>
-                    <p>
-                        Notre mission va au-delà de la culture. Nous croyons en l'impact positif que nous pouvons avoir sur
-                        notre environnement et sur la jeunesse d'Adjamé. Rejoignez-nous dans cette aventure humaine.
-                    </p>
+                    @if(isset($page) && $page->content)
+                        {!! $page->content !!}
+                    @else
+                        <h3>Engagement Communautaire</h3>
+                        <p class="fst-italic">
+                            Chaque année, le festival reverse une partie de ses bénéfices à des actions caritatives.
+                        </p>
+                        <ul>
+                            <li><i class="bi bi-check2-all"></i> <span>Rénovation d'écoles primaires dans la commune
+                                    d'Adjamé.</span></li>
+                            <li><i class="bi bi-check2-all"></i> <span>Dons de kits scolaires aux familles défavorisées.</span>
+                            </li>
+                            <li><i class="bi bi-check2-all"></i> <span>Soutien aux orphelinats locaux.</span></li>
+                        </ul>
+                        <p>
+                            Notre mission va au-delà de la culture. Nous croyons en l'impact positif que nous pouvons avoir sur
+                            notre environnement et sur la jeunesse d'Adjamé. Rejoignez-nous dans cette aventure humaine.
+                        </p>
+                    @endif
                 </div>
 
             </div>

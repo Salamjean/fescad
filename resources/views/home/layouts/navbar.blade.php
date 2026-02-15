@@ -38,15 +38,8 @@
                     </ul>
                 </li>
 
-                <!-- INFORMATIONS PRATIQUES (Dropdown) -->
-                <li class="dropdown">
-                    <a href="#"><span>Infos Pratiques</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                    <ul>
-                        <li><a href="{{ route('infos.lieu') }}">Lieu & Accès</a></li>
-                        <li><a href="{{ route('infos.hebergement') }}">Hébergement</a></li>
-                        <li><a href="{{ route('infos.securite') }}">Sécurité & Règlement</a></li>
-                    </ul>
-                </li>
+                <!-- INFORMATIONS PRATIQUES -->
+                <li><a href="{{ route('infos.index') }}">Infos Pratiques</a></li>
 
                 <!-- ACTUALITÉS & GALERIE -->
                 <li class="dropdown">
