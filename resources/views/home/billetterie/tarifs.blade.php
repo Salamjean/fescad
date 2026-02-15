@@ -31,9 +31,18 @@
                             <h4>{{ $tarif->price }} <sup>FCFA</sup></h4>
                             <ul>
                                 @if($tarif->features)
-                                    @foreach($tarif->features as $feature)
-                                        <li><i class="bi bi-check"></i> {{ $feature }}</li>
-                                    @endforeach
+                                    @php
+                                        $features = $tarif->features;
+                                        if (is_string($features)) {
+                                            $features = json_decode($features, true) ?? explode(',', $features);
+                                        }
+                                    @endphp
+
+                                    @if(is_array($features) || is_object($features))
+                                        @foreach($features as $feature)
+                                            <li><i class="bi bi-check"></i> {{ trim($feature) }}</li>
+                                        @endforeach
+                                    @endif
                                 @endif
                             </ul>
                             <div class="text-center"><a href="{{ route('billetterie.ticket') }}" class="buy-btn">Réserver</a>
