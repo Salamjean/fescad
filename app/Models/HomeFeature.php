@@ -25,4 +25,13 @@ class HomeFeature extends Model
         'points' => 'array',
         'is_reversed' => 'boolean',
     ];
+
+    public function getPointsAttribute($value)
+    {
+        if (is_string($value)) {
+            $decoded = json_decode($value, true);
+            return is_array($decoded) ? $decoded : [$value];
+        }
+        return $value ?: [];
+    }
 }

@@ -23,7 +23,7 @@
                 <!-- Colonne Image (Affiche) -->
                 <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
                     <div class="sticky-top" style="top: 100px; z-index: 1;">
-                        <img src="{{ asset('assets/img/hero-bg.jpg') }}" alt="Affiche Officielle du Programme"
+                        <img src="{{ asset('assets/img/DES-OFFICIELS-DU-FESCAD-ADJAME-e1753460994815.jpg') }}" alt="Affiche Officielle du Programme"
                             class="img-fluid rounded-4 shadow-lg w-100"
                             style="object-fit: cover; height: auto; max-height: 800px;">
 

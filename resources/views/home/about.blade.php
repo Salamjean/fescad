@@ -52,7 +52,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Éditions</p>
                     </div>
@@ -60,7 +60,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="40" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Artistes</p>
                     </div>
@@ -68,7 +68,7 @@
 
                 <div class="col-lg-3 col-md-6">
                     <div class="stats-item text-center w-100 h-100">
-                        <span data-purecounter-start="0" data-purecounter-end="50000" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="3000" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Festivaliers</p>
                     </div>

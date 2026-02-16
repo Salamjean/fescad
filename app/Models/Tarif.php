@@ -21,4 +21,13 @@ class Tarif extends Model
         'features' => 'array',
         'recommended' => 'boolean',
     ];
+
+    public function getFeaturesAttribute($value)
+    {
+        if (is_string($value)) {
+            $decoded = json_decode($value, true);
+            return is_array($decoded) ? $decoded : [$value];
+        }
+        return $value ?: [];
+    }
 }

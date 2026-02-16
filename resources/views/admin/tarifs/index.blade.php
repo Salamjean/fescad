@@ -31,12 +31,14 @@
                                         <td class="text-center">{{ $tarif->price }}</td>
                                         <td class="text-center"><i class="{{ $tarif->icon }}"></i> ({{ $tarif->icon }})</td>
                                         <td class="text-center">
-                                            @if($tarif->features)
+                                            @if(is_array($tarif->features))
                                                 <ul class="list-unstyled">
                                                     @foreach($tarif->features as $feature)
                                                         <li>{{ $feature }}</li>
                                                     @endforeach
                                                 </ul>
+                                            @elseif($tarif->features)
+                                                {{ $tarif->features }}
                                             @endif
                                         </td>
                                         <td class="text-center">

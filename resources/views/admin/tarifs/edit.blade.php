@@ -28,7 +28,7 @@
                         <div class="mb-3">
                             <label for="features" class="form-label">Caractéristiques (Une par ligne)</label>
                             <textarea class="form-control" id="features" name="features"
-                                rows="5">{{ $tarif->features ? implode("\n", $tarif->features) : '' }}</textarea>
+                                rows="5">{{ is_array($tarif->features) ? implode("\n", $tarif->features) : $tarif->features }}</textarea>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="recommended" name="recommended" value="1" {{ $tarif->recommended ? 'checked' : '' }}>

@@ -26,4 +26,13 @@ class FestivalPresentation extends Model
     protected $casts = [
         'points' => 'array',
     ];
+
+    public function getPointsAttribute($value)
+    {
+        if (is_string($value)) {
+            $decoded = json_decode($value, true);
+            return is_array($decoded) ? $decoded : [$value];
+        }
+        return $value ?: [];
+    }
 }

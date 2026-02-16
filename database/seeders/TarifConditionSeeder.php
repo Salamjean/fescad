@@ -20,36 +20,36 @@ class TarifConditionSeeder extends Seeder
                 'name' => 'Pass Journalier',
                 'price' => '5 000',
                 'icon' => 'bi bi-box',
-                'features' => json_encode([
+                'features' => [
                     'Accès au festival pour 1 jour',
                     'Accès aux concerts du jour',
                     'Accès aux stands d\'exposition'
-                ]),
+                ],
                 'recommended' => false,
             ],
             [
                 'name' => 'Pass 3 Jours',
                 'price' => '12 000',
                 'icon' => 'bi bi-rocket',
-                'features' => json_encode([
+                'features' => [
                     'Accès illimité pour les 3 jours',
                     'Accès à tous les concerts',
                     'Accès prioritaire aux ateliers',
                     '1 T-shirt officiel offert'
-                ]),
+                ],
                 'recommended' => true,
             ],
             [
                 'name' => 'Pass VIP',
                 'price' => '25 000',
                 'icon' => 'bi bi-gem',
-                'features' => json_encode([
+                'features' => [
                     'Accès illimité 3 jours',
                     'Place réservée aux concerts',
                     'Accès Espace VIP & Cocktail',
                     'Rencontre avec les artistes',
                     'Kit complet goodies FESCAD'
-                ]),
+                ],
                 'recommended' => false,
             ],
         ];
