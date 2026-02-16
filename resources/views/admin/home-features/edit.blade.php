@@ -80,7 +80,8 @@
 
                         <div class="mb-3">
                             <div class="form-check form-switch">
-                                <input class="form-check-input" type="checkbox" name="is_reversed" id="is_reversed" {{ $homeFeature->is_reversed ? 'checked' : '' }}>
+                                <input class="form-check-input" type="checkbox" name="is_reversed" id="is_reversed"
+                                    value="1" {{ $homeFeature->is_reversed ? 'checked' : '' }}>
                                 <label class="form-check-label" for="is_reversed">Inverser la mise en page (Image à
                                     droite)</label>
                             </div>
