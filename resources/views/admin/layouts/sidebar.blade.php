@@ -66,7 +66,7 @@
             <a href="#billetterieSubmenu" data-bs-toggle="collapse" aria-expanded="false"
                 class="dropdown-toggle d-flex align-items-center">
                 <i class="bi bi-ticket-perforated me-2"></i>
-                <span>Billetterie & Stands</span>
+                <span>Partenaires & Sponsors</span>
                 <i class="bi bi-chevron-down ms-auto dropdown-chevron"></i>
             </a>
             <ul class="collapse list-unstyled ps-3 {{ request()->is('admin/reservations*', 'admin/tarifs*', 'admin/conditions*') ? 'show' : '' }}"

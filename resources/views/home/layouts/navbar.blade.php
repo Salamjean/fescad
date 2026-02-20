@@ -29,10 +29,10 @@
 
                 <!-- BILLETTERIE & STANDS -->
                 <li class="dropdown">
-                    <a href="#"><span>Billetterie & Stands</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <a href="#"><span>Partenariats & Sponsoring</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
-                        <li><a href="{{ route('billetterie.ticket') }}">Réserver un billet</a></li>
-                        <li><a href="{{ route('billetterie.stand') }}">Réserver un stand</a></li>
+                        <li><a href="{{ route('billetterie.ticket') }}">Devenir un partenaire</a></li>
+                        <li><a href="{{ route('billetterie.stand') }}">Devenir un sponsor</a></li>
                         <li><a href="{{ route('billetterie.tarifs') }}">Tarifs & Formules</a></li>
                         <li><a href="{{ route('billetterie.conditions') }}">Conditions générales</a></li>
                     </ul>
