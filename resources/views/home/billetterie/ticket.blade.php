@@ -3,12 +3,12 @@
     <!-- Page Title -->
     <div class="page-title dark-background">
         <div class="container position-relative">
-            <h1>Réserver un Billet</h1>
-            <p>Assurez votre place pour le FESCAD en réservant dès maintenant.</p>
+            <h1>Devenir un partenaire</h1>
+            <p>Devenir un partenaire du FESCAD.</p>
             <nav class="breadcrumbs">
                 <ol>
                     <li><a href="{{ route('home') }}">Accueil</a></li>
-                    <li class="current">Billetterie</li>
+                    <li class="current">Partenaire</li>
                 </ol>
             </nav>
         </div>
@@ -22,9 +22,8 @@
                     <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
                         <div class="card-header text-white text-center py-4" style="background-color: #1e4356;">
                             <h3 class="mb-0 fw-bold" style="color: white;"><i class="bi bi-ticket-perforated me-2"></i>
-                                Réservation de Pass</h3>
-                            <p class="mb-0 text-white-50 mt-2">Remplissez le formulaire ci-dessous pour obtenir votre
-                                ticket.</p>
+                                Devenir un partenaire du FESCAD</h3>
+                            <p class="mb-0 text-white-50 mt-2">Remplissez le formulaire ci-dessous pour devenir un partenaire du FESCAD.</p>
                         </div>
                         <div class="card-body p-5 bg-light">
                             @if(session('success'))

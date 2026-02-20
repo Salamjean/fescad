@@ -3,12 +3,12 @@
     <!-- Page Title -->
     <div class="page-title dark-background">
         <div class="container position-relative">
-            <h1>Réserver un Stand</h1>
-            <p>Devenez exposant et profitez d'une visibilité exceptionnelle au FESCAD.</p>
+            <h1>Devenir un sponsor</h1>
+            <p>Devenez un sponsor et profitez d'une visibilité exceptionnelle au FESCAD.</p>
             <nav class="breadcrumbs">
                 <ol>
                     <li><a href="{{ route('home') }}">Accueil</a></li>
-                    <li class="current">Réservation Stand</li>
+                    <li class="current">Devenir un sponsor</li>
                 </ol>
             </nav>
         </div>
@@ -25,8 +25,8 @@
                             <div class="col-md-4 text-white d-flex flex-column align-items-center justify-content-center p-5 text-center"
                                 style="background-color: #1e4356;">
                                 <i class="bi bi-shop display-1 mb-3"></i>
-                                <h3 class="fw-bold">Pourquoi Exposant ?</h3>
-                                <p class="mt-3">Rejoignez des centaines d'exposants et présentez vos produits à un public
+                                <h3 class="fw-bold">Pourquoi Sponsor ?</h3>
+                                <p class="mt-3">Rejoignez des centaines de sponsors et présentez vos produits à un public
                                     diversifié.</p>
                                 <ul class="list-unstyled text-start mt-4">
                                     <li class="mb-2"><i class="bi bi-check2-circle me-2"></i> Visibilité accrue</li>
