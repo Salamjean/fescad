@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Tarif;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TarifController extends Controller
 {
@@ -33,6 +34,7 @@ class TarifController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'icon' => 'nullable|string|max:255',
             'features' => 'nullable|string', // Expecting text from textarea
             'recommended' => 'boolean',
@@ -44,6 +46,10 @@ class TarifController extends Controller
             $data['features'] = array_filter(array_map('trim', explode("\n", $request->features)));
         } else {
             $data['features'] = [];
+        }
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('tarifs', 'public');
         }
 
         $data['recommended'] = $request->has('recommended');
@@ -69,6 +75,7 @@ class TarifController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'price' => 'required|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'icon' => 'nullable|string|max:255',
             'features' => 'nullable|string',
             'recommended' => 'boolean',
@@ -80,6 +87,13 @@ class TarifController extends Controller
             $data['features'] = array_filter(array_map('trim', explode("\n", $request->features)));
         } else {
             $data['features'] = [];
+        }
+
+        if ($request->hasFile('image')) {
+            if ($tarif->image) {
+                Storage::disk('public')->delete($tarif->image);
+            }
+            $data['image'] = $request->file('image')->store('tarifs', 'public');
         }
 
         $data['recommended'] = $request->has('recommended');
@@ -94,6 +108,9 @@ class TarifController extends Controller
      */
     public function destroy(Tarif $tarif)
     {
+        if ($tarif->image) {
+            Storage::disk('public')->delete($tarif->image);
+        }
         $tarif->delete();
         return redirect()->route('admin.tarifs.index')->with('success', 'Tarif supprimé avec succès.');
     }

@@ -8,7 +8,7 @@
                     <h4>Ajouter un Tarif</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.tarifs.store') }}" method="POST">
+                    <form action="{{ route('admin.tarifs.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Nom du Tarif</label>
@@ -21,6 +21,10 @@
                         <div class="mb-3">
                             <label for="icon" class="form-label">Classe Icone (Bootstrap Icons, ex: bi bi-box)</label>
                             <input type="text" class="form-control" id="icon" name="icon">
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image (Optionnelle)</label>
+                            <input type="file" class="form-control" id="image" name="image" accept="image/*">
                         </div>
                         <div class="mb-3">
                             <label for="features" class="form-label">Caractéristiques (Une par ligne)</label>

@@ -8,7 +8,8 @@
                     <h4>Modifier un Tarif</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('admin.tarifs.update', $tarif->id) }}" method="POST">
+                    <form action="{{ route('admin.tarifs.update', $tarif->id) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -24,6 +25,15 @@
                         <div class="mb-3">
                             <label for="icon" class="form-label">Classe Icone</label>
                             <input type="text" class="form-control" id="icon" name="icon" value="{{ $tarif->icon }}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Image (Optionnelle)</label>
+                            <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                            @if($tarif->image)
+                                <div class="mt-2">
+                                    <img src="{{ asset('storage/' . $tarif->image) }}" alt="Image" width="100">
+                                </div>
+                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="features" class="form-label">Caractéristiques (Une par ligne)</label>

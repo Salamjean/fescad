@@ -24,6 +24,12 @@
                 @foreach($tarifs as $tarif)
                     <div class="col-lg-4" data-aos="zoom-in" data-aos-delay="{{ 100 * $loop->iteration }}">
                         <div class="pricing-item {{ $tarif->recommended ? 'featured' : '' }}">
+                            @if($tarif->image)
+                                <div class="mb-3 text-center">
+                                    <img src="{{ asset('storage/' . $tarif->image) }}" alt="{{ $tarif->name }}"
+                                        class="img-fluid rounded" style="max-height: 150px; object-fit: cover; width: 100%;">
+                                </div>
+                            @endif
                             <h3>{{ $tarif->name }}</h3>
                             <div class="icon">
                                 <i class="{{ $tarif->icon ?? 'bi bi-box' }}"></i>
